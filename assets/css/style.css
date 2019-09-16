@@ -1,0 +1,118 @@
+
+body {
+    background-image: linear-gradient(rgb(255, 255, 255) 55%, rgb(180, 182, 211));
+
+}
+
+p {
+     color: rgb(126, 128, 167);
+
+}
+
+.container {
+    margin: 40px, 40px;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Coiny');
+
+.cloud-text, #word-appears {
+    font-family: 'Coiny', cursive;
+    -webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;	
+	background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/769286/clouds.jpg);
+	background-size: auto;
+	background-attachment: unset;
+    background-position: 0%;
+    padding-top: 20px;
+	width: 80%;
+	margin: 0 auto;
+    font-size: 60px;
+    font-weight: bold;
+	animation: clouds-moving infinite 120s;
+	animation-fill-mode: forwards;
+	animation-play-state: running;
+	animation-timing-function: linear;
+	text-align: center;
+}
+@keyframes clouds-moving {
+	0% {
+		background-position: 0%;	
+	}
+	50% {
+		background-position: 100%;	
+	}
+	100% {
+		background-position: 0%;
+	}
+}
+#title {
+    background: #ffffff;
+}
+h2, h3, p{
+    font-family: 'Poiret One', cursive;
+
+}
+
+.attribute {
+	position: relative;
+	font-size: 18px;
+	text-align: center;
+}
+
+#instructions {
+    color: rgb(126, 128, 167);
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Poiret One', cursive;
+
+}
+.text {
+    font-family: 'Poiret One', cursive;
+    color: rgb(153, 156, 202);
+
+}
+
+#word-appears {
+    min-height: 60px;
+    text-align: center;
+}
+
+
+#blanks-and-words {
+    text-align: center;
+    color: rgb(153, 156, 202);
+    min-height: 150px;
+    margin: 15px, 15px;
+    font-family: 'Poiret One', cursive;
+
+}
+
+#wrong-letters {
+    font-family: 'Poiret One', cursive;
+    min-height: 150px;
+    margin: 15px, 15px;
+    color: rgb(153, 156, 202);
+
+
+}
+
+#scoreboard {
+    font-family: 'Poiret One', cursive;
+    min-height: 150px;
+    margin: 15px, 15px;
+    color: rgb(153, 156, 202);
+
+}
+
+
+.image {
+    max-width: 250px;
+    border: 5px solid rgb(153, 156, 202);   
+    border-radius: 20%;
+}
+
+#bottom-wrapper {
+    height: 200px;
+}
+ 

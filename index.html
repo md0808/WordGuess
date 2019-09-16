@@ -3,13 +3,162 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Coiny|Poiret+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">              
 
-  <title>Word Guess</title>
-
+  <title>Hangman Went to Heaven</title>
 
 </head>
 
 <body>
-  <script src="js/script.js"></script>
+<div class="container">
+        <div id="title" class="row">
+                <h1 class="cloud-text">Hangman Went to Heaven!</h1>
+        </div>
+        <div id="instructions" class="row">
+                <h2>Guess the letters to find the words. Find out all of the things that Hangman is enjoying in heaven. Press any key to start game.</h2>
+             
+        </div>
+ 
+        <div class="row">
+            <div class="col-md-2">
+                <div class="row">
+                    <div id ="scoreboard">
+                        <h3>Scoreboard</h3>
+                        <p>Wins:</p>
+                        <p>losses:</p>
+                    </div>
+                </div>
+                <div class="row" class="text">
+                    <h3 class="text">Letters already guessed</h3>
+                    <p id="wrong-letters"> </p>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class=row id="word-appears">
+                    words will appear.
+                </div>
+                <div class="row"id="blanks-and-words" >
+                <h3>This is where the blanks per letter will go.</h3>
+                </div>
+            </div>
+
+            <div class="col-md-2" id="image-col">
+                <img src="assets/images/angels.jpeg" class="image">
+            </div>
+        </div>
+</div>
+
+<div id="bottom-wrapper">
+ </div >
+
+<script type="text/javascript">  
+
+
+
+
+var wins = 0;
+var losses = 0;
+var possibleTries = 8;
+
+
+
+var possibleWords =["clouds", "angels", "bergamot", "doves", "chocolate", "silk", "bathtubs",
+                    "Elvis", "honey", "spirits", "saints", "thunderbolts", "alpacas" ];
+
+
+
+
+  // make an object with images that correspond to words
+                  
+// var imageFile ={ clouds : "./assets/images/.img",
+// }
+var showImage = document.getElementById("image-col");
+
+
+// create a function so that the computer randomly selects one of the possible words 
+
+var randomSelection = possibleWords[Math.floor(Math.random()* possibleWords.length)];
+    console.log(randomSelection);
+
+// function where the letters of the randomSelection are detected and added to empty string
+var newArray = randomSelection.split( " ");
+    console.log (newArray);
+var emptyWordString = "";
+
+function addLetters(randomSelection,emptyWordString){
+
+}
+ 
+
+
+//create a function that detects users letter choice with key press detectUserLetter determines chosenLetter
+
+document.onkeyup = function() {
+    var userLetter = String.fromCharCode(event.keyCode)
+    .toLowerCase();
+    console.log (userLetter);
+
+    for (var i=0; i<emptyWordString.length; i++);
+        if (emptyWordString[i] === userLetter) {
+            win++;
+
+        }
+
+    }
+
+
+       
+
+
+
+
+    
+
+
+// function detectLetters(randomSelection, choosenLetter){}
+
+
+// var blankSpace = "_";
+// var numberOfLetters =;
+
+    // function that adds a blankSpace to blanks-and-words for numberofLetters  
+// function blankSpaceMaker(){
+
+// }
+
+    // chosenLetter is compared against allLetters in the wordFromHeaven.
+
+//  function compareLetters() {
+
+//  }
+
+  
+      // if else statements for if correct, that letters becomes correctLetter, and  correctLetter replaces the blankSpace 
+      // if wrong, triggers function wrongLetter, and chosenLetter appears in the list of wrong letters chosen, -1 from possibleTries.
+      // 8 wrong letters guessed before game restarts and point is lost 
+      // if the letter has already been used, nothing happens
+ // Add the letters into an empty array
+  //when all letters are correctly guessed (no blank spaces left), 
+    //user is congratulated, word is displayed
+    //user earns a point
+  // if all 8 tries are used without guessing the word, -1 score and a new round starts
+
+//   function displayWord () {}
+
+//   var dw = document.getElementById("image-col");
+//   dw.
+
+//   function displayImage () {}
+//   function newRound (){}
+  // number of letters used begins at 0, new word is selected from possibleWords
+
+
+
+
+</script>
+
 </body>
 </html>
