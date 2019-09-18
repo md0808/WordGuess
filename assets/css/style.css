@@ -10,7 +10,7 @@ p {
 }
 
 .container {
-    margin: 40px, 40px;
+    margin: 50px, 50px;
 }
 
 
@@ -110,6 +110,7 @@ h2, h3, p{
     max-width: 250px;
     border: 5px solid rgb(153, 156, 202);   
     border-radius: 20%;
+    margin: 10px, auto;
 }
 
 #bottom-wrapper {
