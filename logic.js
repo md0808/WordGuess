@@ -1,7 +1,7 @@
 
 // Global variables
 var possibleWords =["clouds", "angels", "bergamot", "doves", "chocolate", "silk", "bathtubs",
-"elvis", "stairs", "alpacas" ];
+"elvis", "stairway", "alpacas" ];
 var randomSelection = "";
 var lettersOfWord= [];
 var numBlanks = 0;
@@ -11,21 +11,18 @@ var wins = 0;
 var losses = 0;
 var remainingTries = 10;
 
-var images = {
-  "clouds": ".assets/images.clouds.img",
-  "angels": ".assets/images.angels.img",
-  "bergamot": ".assets/images.bergamot.img",
-  "doves": ".assets/images.doves.img",
-  "chocolate": ".assets/images.chocolate.img",
-  "silk": ".assets/images.silk.img",
-  "bathtubs": ".assets/images.bathtubs.img",
-  "elvis":".assets/images.elvis.img",
-  "stairs": ".assets/images.stairs.img",
-  "alpacas": ".assets/images.alpacas.img",
-
-}
-
-
+// var heavenImages = {
+//   "clouds": "img src='.assets/images/clouds.jpg'",
+//   "angels": ".assets/images/angels.jpg",
+//   "bergamot": ".assets/images/bergamot.jpg",
+//   "doves": ".assets/images/doves.jpg",
+//   "chocolate": ".assets/images.chocolate.jpg",
+//   "silk": ".assets/images.silk.jpg",
+//   "bathtubs": ".assets/images.bathtubs.jpg",
+//   "elvis":".assets/images/elvis.jpg",
+//   "stairway": ".assets/images/stairs.jpg",
+//   "alpacas": ".assets/images/alpacas.jpg.",
+// }
 
 
 //functions
@@ -56,26 +53,47 @@ function startGame() {
    console.log(blanksAndSucesses);
   
 }
+
 function checkLetters(letter) {
+    //Sets the precedent as false
       var isLetterInWord = false;
       for (var i=0; i<numBlanks; i++){
+        //if the letter is in the list of letters of the random selection, than var isLetterInWord is true
         if (randomSelection[i]== letter) {
           isLetterInWord = true;
+          console.log("the letter is in the word");
         }
        }
-
-    if (isLetterInWord) { 
-      for (var i=0; i<numBlanks; i++) {
-        if (randomSelection[i] == letter){
-          blanksAndSucesses[i] = letter;
+       // if the letter is in the word, it adds the letter to blanks and sucesses based on the position it occupies in numbBlanks
+      if (isLetterInWord) { 
+        for (var i=0; i<numBlanks; i++) {
+          if (randomSelection[i] == letter){
+            blanksAndSucesses[i] = letter;
+            console.log(blanksAndSucesses);
+          }
         }
       }
-    }
 
-    else {
-      wrongLetters.push(letter);
-      remainingTries--
-    }
+      //runs if the letter is not in the word - compare it to the array of wrong letters
+      // else {
+      //  isLetterinWord = false
+      //   for (var i=0; i<wrongLetters; i++){
+      //     if (wrongLetters[i] == letter){
+      //       isLetterInWord= false;  
+      //     }
+          else {
+            isLetterinWord = false
+            wrongLetters.push(letter);
+            remainingTries--;
+            console.log(wrongLetters);
+            }
+          
+
+
+        
+      // }
+          
+    
 
     console.log(blanksAndSucesses);
 }
@@ -92,7 +110,8 @@ function roundComplete() {
       document.getElementById("word-appears").innerHTML =  randomSelection + ": You win! New word:";
 
       document.getElementById("win").innerHTML = wins;
-      // document.getElementById("image-col").innerHTML = image.// same as randomSelection
+      document.getElementById("image-col").innerHTML =  "<img src='assets/images/" + randomSelection +".jpg>'";
+     //document.getElementById("image-col").innerHTML =  heavenImages.randomSelection;
 
       startGame();
     }
