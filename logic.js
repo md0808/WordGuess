@@ -55,7 +55,7 @@ function startGame() {
 }
 
 function checkLetters(letter) {
-    //Sets the precedent as false
+    //Sets the precedent as false until the argument proves it true.
       var isLetterInWord = false;
       for (var i=0; i<numBlanks; i++){
         //if the letter is in the list of letters of the random selection, than var isLetterInWord is true
@@ -73,27 +73,34 @@ function checkLetters(letter) {
           }
         }
       }
-
-      //runs if the letter is not in the word - compare it to the array of wrong letters
-      // else {
-      //  isLetterinWord = false
-      //   for (var i=0; i<wrongLetters; i++){
-      //     if (wrongLetters[i] == letter){
-      //       isLetterInWord= false;  
-      //     }
-          else {
-            isLetterinWord = false
+      //runs if the letter is not in the word - compares letter to the array of wrong letters
+      else {
+        if (wrongLetters.length ===0 ) {
+          wrongLetters.push(letter);
+          remainingTries--;
+        }
+        else {
+          for (let i = 0; i < wrongLetters.length; i++) {
+            const element = wrongLetters[i];
+            if (letter !== element) {
             wrongLetters.push(letter);
             remainingTries--;
-            console.log(wrongLetters);
+            console.log("This is the wrong letter" + wrongLetters);
             }
+          }
+          // for (var i=0; i < wrongLetters.length; i++){
+          //   if (wrongLetters[i] !== letter){
+
+          //   }
+          // }
+        }
           
 
 
         
-      // }
+    }
           
-    
+     
 
     console.log(blanksAndSucesses);
 }
