@@ -20,7 +20,7 @@ var heavenImages = {
   "silk": "assets/images/silk.jpg",
   "bathtubs": "assets/images/bathtubs.jpg",
   "elvis":"assets/images/elvis.jpg",
-  "stairway": "assets/images/stairs.jpg",
+  "stairway": "assets/images/stairway.jpg",
   "alpacas": "assets/images/alpacas.jpg",
 }
 
