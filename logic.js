@@ -11,18 +11,18 @@ var wins = 0;
 var losses = 0;
 var remainingTries = 10;
 
-// var heavenImages = {
-//   "clouds": "img src='.assets/images/clouds.jpg'",
-//   "angels": ".assets/images/angels.jpg",
-//   "bergamot": ".assets/images/bergamot.jpg",
-//   "doves": ".assets/images/doves.jpg",
-//   "chocolate": ".assets/images.chocolate.jpg",
-//   "silk": ".assets/images.silk.jpg",
-//   "bathtubs": ".assets/images.bathtubs.jpg",
-//   "elvis":".assets/images/elvis.jpg",
-//   "stairway": ".assets/images/stairs.jpg",
-//   "alpacas": ".assets/images/alpacas.jpg.",
-// }
+var heavenImages = {
+  "clouds": "assets/images/clouds.jpg",
+  "angels": "assets/images/angels.jpg",
+  "bergamot": "assets/images/bergamot.jpg",
+  "doves": "assets/images/dove.jpg",
+  "chocolate": "assets/images/chocolate.jpg",
+  "silk": "assets/images/silk.jpg",
+  "bathtubs": "assets/images/bathtubs.jpg",
+  "elvis":"assets/images/elvis.jpg",
+  "stairway": "assets/images/stairs.jpg",
+  "alpacas": "assets/images/alpacas.jpg",
+}
 
 
 //functions
@@ -54,6 +54,11 @@ function startGame() {
   
 }
 
+
+function isLetter(str) {
+  return str.length === 1 && str.match(/[a-z]/i);
+}
+
 function checkLetters(letter) {
     //Sets the precedent as false until the argument proves it true.
       var isLetterInWord = false;
@@ -80,13 +85,12 @@ function checkLetters(letter) {
           remainingTries--;
         }
         else {
-          for (let i = 0; i < wrongLetters.length; i++) {
-            const element = wrongLetters[i];
-            if (letter !== element) {
-            wrongLetters.push(letter);
-            remainingTries--;
-            console.log("This is the wrong letter" + wrongLetters);
-            }
+
+            if (wrongLetters.indexOf(letter) === -1){
+               wrongLetters.push(letter);
+              remainingTries--;
+              console.log("This is the wrong letter" + wrongLetters);
+              }
           }
           // for (var i=0; i < wrongLetters.length; i++){
           //   if (wrongLetters[i] !== letter){
@@ -98,7 +102,7 @@ function checkLetters(letter) {
 
 
         
-    }
+    
           
      
 
@@ -117,13 +121,12 @@ function roundComplete() {
       document.getElementById("word-appears").innerHTML =  randomSelection + ": You win! New word:";
 
       document.getElementById("win").innerHTML = wins;
-      document.getElementById("image-col").innerHTML =  "<img src='assets/images/" + randomSelection +".jpg>'";
-     //document.getElementById("image-col").innerHTML =  heavenImages.randomSelection;
+      document.getElementById("image-col").innerHTML =  '<img class="image" src="'+ heavenImages[randomSelection] +  '" />';
 
       startGame();
     }
  // check if user lost
-  else if (remainingTries ==0){
+  else if (remainingTries <= 0){
       losses++
       document.getElementById("loss").innerHTML = losses;
       document.getElementById("word-appears").innerHTML = ("You lose. Try again");
@@ -147,7 +150,10 @@ startGame();
 document.onkeyup = function(event) {
   var letterGuessed = String.fromCharCode(event.keyCode)
   .toLowerCase();
-  checkLetters(letterGuessed);
+  isLetter(letterGuessed);
+  if (isLetter(letterGuessed)){
+    checkLetters(letterGuessed);
+  }
   roundComplete();
 
   console.log ("I am a " + letterGuessed);
